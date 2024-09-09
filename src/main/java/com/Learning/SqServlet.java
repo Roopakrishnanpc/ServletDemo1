@@ -114,11 +114,12 @@ public class SqServlet extends HttpServlet {
 			//resp.getWriter().println("The result for SQ " +result);
 			int k=0;
 			Cookie cookie[]=arg0.getCookies();
-			for(Cookie i:cookie)
-			{
-				if(i.getName().equals("k"))
-					k=Integer.parseInt(i.getValue());
+			Cookie cookie[] = arg0.getCookies(); // Retrieves an array of cookies from the HTTP request
+			for (Cookie i : cookie) { // Iterates over each cookie in the array
+			    if (i.getName().equals("k")) // Checks if the name of the cookie is "k"
+			        k = Integer.parseInt(i.getValue()); // Converts the value of the cookie to an integer and assigns it to the variable 'k'
 			}
+
 			int result =(int)Math.sqrt(k);
 			res.getWriter().println("<html><body bgcolor='red'>");
 			res.getWriter().println("The result for SQ for redirect using Cookie " +result);
